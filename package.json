@@ -6,7 +6,8 @@
   "scripts": {
     "postinstall": "chmod -R +x ./scripts",
     "test": "scripty",
-    "build": "scripty"
+    "build": "scripty",
+    "clean": "scripty"
   },
   "author": "",
   "license": "ISC",
