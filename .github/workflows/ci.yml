@@ -78,6 +78,7 @@ jobs:
             ${{ runner.os }}
 
       - uses: actions/download-artifact@v2
+        id: download
         with:
           name: build-folders
           path: |
@@ -85,6 +86,9 @@ jobs:
 
       - name: Display structure of downloaded files
         run: ls -R -I node_modules
+
+      - name: 'Echo download path'
+        run: echo ${{steps.download.outputs.download-path}}
 
       - name: Test if build is here
         run: node test.js
