@@ -52,7 +52,7 @@ jobs:
 
       - run: mkdir -p graph
       - name: Lerna Graph
-      - uses: lerdajs/lerna-graph-action
+        uses: lerdajs/lerna-graph-action
         with:
           rootPath: .
           path: graph/image.png
