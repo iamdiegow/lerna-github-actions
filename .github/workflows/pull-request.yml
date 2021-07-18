@@ -1,6 +1,6 @@
-name: CI
+name: Pull request CI
 on:
-  push:
+  pull_request:
     branches:
       - main
 
@@ -41,7 +41,7 @@ jobs:
         run: lerna bootstrap --hoist
 
       - name: Build packages
-        run: npm run build
+        run: lerna run build --since $(git merge-base main ${{ github.ref  }}) --stream
 
       - name: Test packages
-        run: npm run test
+        run: lerna run test --since $(git merge-base main ${{ github.ref  }}) --stream
