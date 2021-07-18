@@ -43,7 +43,7 @@ jobs:
         run: lerna bootstrap --hoist
 
       - name: Build packages
-        run: lerna run build --stream --since origin/main
+        run: lerna run build --stream --since origin/main --include-dependencies
 
       - name: Test packages
         run: lerna run test --stream --since origin/main
