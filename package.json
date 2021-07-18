@@ -4,11 +4,15 @@
   "description": "lerna monorepo setup with github actions for ci",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "chmod -R +x ./scripts",
+    "test": "scripty",
+    "build": "scripty",
+    "clean": "scripty"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "lerna": "^4.0.0"
+    "lerna": "^4.0.0",
+    "scripty": "^2.0.0"
   }
 }
