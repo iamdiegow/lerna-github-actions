@@ -13,8 +13,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: echo github object
-        run: echo ${{ toJson($GITHUB)}}
       - name: Checkout repo
         uses: actions/checkout@v2
         with:
@@ -45,7 +43,7 @@ jobs:
         run: lerna bootstrap --hoist
 
       - name: Build packages
-        run: lerna run build --stream --since '$(git merge-base main ${{ github.head_ref }})'
+        run: lerna run build --stream --since main
 
       - name: Test packages
-        run: lerna run test --stream --since '$(git merge-base main ${{ github.head_ref }})'
+        run: lerna run test --stream --since main
