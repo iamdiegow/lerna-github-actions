@@ -15,6 +15,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
+        with:
+          fetch-depth: '0'
 
       - name: Setup Nodejs
         uses: actions/setup-node@v1
@@ -41,7 +43,7 @@ jobs:
         run: lerna bootstrap --hoist
 
       - name: Build packages
-        run: lerna run build --stream --since ${{ github.sha }}
+        run: lerna run build --stream --since $(git merge-base main ${{ github.head_ref }})
 
       - name: Test packages
-        run: lerna run test --stream --since ${{ github.sha }}
+        run: lerna run test --stream --since $(git merge-base main ${{ github.head_ref }})
