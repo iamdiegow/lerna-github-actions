@@ -43,7 +43,7 @@ jobs:
         run: lerna bootstrap --hoist
 
       - name: Build packages
-        run: lerna run build --stream --since $(git merge-base main ${{ github.head_ref }})
+        run: lerna run build --stream --since '$(git merge-base main ${{ github.head_ref }})'
 
       - name: Test packages
-        run: lerna run test --stream --since $(git merge-base main ${{ github.head_ref }})
+        run: lerna run test --stream --since '$(git merge-base main ${{ github.head_ref }})'
